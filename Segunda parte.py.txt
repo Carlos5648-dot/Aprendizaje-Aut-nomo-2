@@ -1,0 +1,48 @@
+import random  # eleccion de la computadora
+#lista de  para si y no 
+lista_de_aceptacion=['si','no'] 
+#variables
+Piedra = 0
+Papel = 1
+Tijera = 2
+#lista de opciones del juego
+array_lista_de_opciones_de_juego = ['piedra','papel','tijera']
+
+
+#iniciar juego
+def iniciar_juego():
+    comenzar = input("Quires inciar el juego (si/no)").lower()
+
+    while comenzar not in lista_de_aceptacion:    #bucle
+        print("Eleccion no valida ingresa de nuevo")
+        comenzar = input("Quires inciar el juego (si/no)").lower()
+
+
+#opciones que apareceran en el juego
+def opciones_de_juego():   
+    while True:
+        try:
+            opcion = int(input("Ingrese el número correspondiente para jugar: "))
+            if opcion in [Piedra, Papel, Tijera]:
+                return opcion
+            else:
+                print("Número inválido. Por favor, intente de nuevo.")
+        except ValueError:
+            print("Entrada inválida. Por favor, ingrese un número.")
+
+
+
+#Opcion del computador
+def opcion_de_la_computadora():
+   return random.choice([Piedra,Papel,Tijera])
+
+#Determinar el ganador 
+def determianar_ganador(jugador,computadora):
+    if jugador == computadora:
+        print("Has empatado")
+    elif (jugador == Piedra and computadora == Tijera) or\
+         (jugador == Papel and computadora == Piedra) or\
+         (jugador == Tijera and computadora == Papel):
+        print("Felicidades has ganado ")
+    else:
+        print("Lo sentimos, has perdido")
