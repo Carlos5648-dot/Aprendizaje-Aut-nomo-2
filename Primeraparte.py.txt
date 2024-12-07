@@ -1,0 +1,17 @@
+import random
+#variables
+si =1
+no = 2
+piedra =1
+papel = 2
+tijera = 3
+lista = ["piedra", "papel", "tijera"]
+        
+    
+
+#Inicair juego
+iniciar = input("Quieres iniciar le juego: (si/no)")
+if iniciar.lower() == 'si':
+            print("Elije una opcion "+str(lista))
+elif iniciar.lower() == 'no':
+            print("Has terminado el juego")
