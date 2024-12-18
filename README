@@ -1,0 +1,18 @@
+Juego "Piedra, Papel o Tijera"
+Fecha: 18/12/2024
+Objetivo:
+  Desarollar el juego "Piedra, Papel o Tijera" utilizando los conocimientos adquiridos en clases.
+  Adquirir habilidades en el uso de herramientas y bibliotecas de python para simplificacion y optimizción del codigo.
+Explicacion 
+  El diseño del código se creó para ser un juego de un solo jugador, donde únicamente participa el usuario y la computadora.
+  Para determinar el resultado, la computadora también elejira una opcion al azar.
+1. Al ejecutar el codigo , aparece un mensaje preguntando si quiere iniciar el juego con dos opciones "si y no"
+2. Si el jugador escoje si , pasara al siguiente mensaje " Elije una oopcion para jugar " con 3 opciones Piedra = 0 ,Papel = 1 , Tijera = 2.
+3. Despues la computadora elejira un opcion al azar de las tres opciones "Piedra, Papel, Tijera".
+4.Al tener los resultados el programa decidira el resultado 
+5. Aparecera un mensaje informando si en usuario gano, perdio o empato.
+6. Al final se precentara un mensaje " Quieres volver a intentarlo" con las opciones si y no 
+7. Si el usuario elije no el programa terminara , si elije si repetira el mismo proceso 
+
+
+
