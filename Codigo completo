@@ -1,0 +1,82 @@
+import random  # Para la lección de la computadora
+
+# Lista de aceptación para las respuestas "sí" y "no"
+lista_de_aceptacion = ['si', 'no']
+
+# Variables
+Piedra = 0
+Papel = 1
+Tijera = 2
+
+# Lista de opciones del juego
+array_lista_de_opciones_de_juego = ['piedra', 'papel', 'tijera']
+
+# Iniciar juego
+def iniciar_juego():
+    comenzar = input("¿Quieres iniciar el juego? (si/no): ").lower()
+    while comenzar not in lista_de_aceptacion:  # Bucle
+        print("Elección no válida, ingresa de nuevo.")
+        comenzar = input("¿Quieres iniciar el juego? (si/no): ").lower()
+    return comenzar
+
+# Opciones que aparecerán en el juego
+def opciones_de_juego():   
+    while True:
+        try:
+            opcion = int(input("Ingrese el número correspondiente para jugar: "))
+            if opcion in [Piedra, Papel, Tijera]:
+                return opcion
+            else:
+                print("Número inválido. Por favor, intente de nuevo.")
+        except ValueError:
+            print("Entrada inválida. Por favor, ingrese un número.")
+
+# Opción del computador
+def opcion_de_la_computadora():
+    return random.choice([Piedra, Papel, Tijera])
+
+# Determinar el ganador 
+def determinar_ganador(jugador, computadora):
+    if jugador == computadora:
+        return "Has empatado"
+    elif (jugador == Piedra and computadora == Tijera) or\
+         (jugador == Papel and computadora == Piedra) or\
+         (jugador == Tijera and computadora == Papel):
+        return "¡Felicidades, has ganado!"
+    else:
+        return "Lo sentimos, has perdido"
+
+# Visualizar opciones del juego
+def visualizar_opciones_de_juego():
+    print(f"           [{Piedra}] Piedra")
+    print(f"           [{Papel}] Papel")
+    print(f"           [{Tijera}] Tijera")
+
+# Jugar
+def jugar():
+    while True:  # Bucle principal para jugar
+
+        iniciar = iniciar_juego()
+        
+        visualizar_opciones_de_juego()  # Mostrar opciones del juego
+        
+        opcion_jugador = opciones_de_juego()
+        opcion_computadora = opcion_de_la_computadora()
+
+        print(f"Has elegido: {array_lista_de_opciones_de_juego[opcion_jugador]}")
+        print(f"La computadora ha elegido: {array_lista_de_opciones_de_juego[opcion_computadora]}")
+
+        resultado = determinar_ganador(opcion_jugador, opcion_computadora)
+        print(f"\n{resultado}")
+
+        # Pregunta si quiere volver a jugar
+        reiniciar = input("\n¿Quieres jugar de nuevo? (si/no): ").lower()
+        while reiniciar not in lista_de_aceptacion:
+            print("Elección no válida. Por favor, ingresa 'si' o 'no'.")
+            reiniciar = input("\n¿Quieres jugar de nuevo? (si/no): ").lower()
+        
+        if reiniciar == 'no':
+            print("Gracias por jugar. ¡Hasta pronto!")
+            break
+
+jugar()
